@@ -754,6 +754,11 @@ namespace System.Windows.Forms
             get => DefaultLayout.GetAnchor(this);
             set => DefaultLayout.SetAnchor(ParentInternal, this, value);
         }
+        
+        public void Animate(AnimateWindowFlags flags, int time)
+        {
+            NativeMethods.AnimateWindow(this.Handle, (int)flags, time);
+        }
 
         [SRCategory(nameof(SR.CatLayout))]
         [RefreshProperties(RefreshProperties.All)]

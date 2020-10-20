@@ -710,6 +710,15 @@ namespace System.Windows.Forms
                 }
             }
         }
+        
+        public void Animate(AnimateWindowFlags flags, int time)
+        {
+            bool bSuccess = User32.AnimateWindow(this.Handle, (int)flags, time);
+            if (!bSuccess)
+            {
+                throw new Win32Exception(Marshal.GetLastWin32Error());
+            }
+        }
 
         // Queries the Site for AmbientProperties.  May return null.
         // Do not confuse with inheritedProperties -- the service is turned to

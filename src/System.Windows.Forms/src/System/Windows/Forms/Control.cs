@@ -711,7 +711,7 @@ namespace System.Windows.Forms
             }
         }
         
-        public void Animate(AnimateWindowFlags flags, int time)
+        public void Animate(AnimationFlags animationFlags, int time)
         {
             bool bSuccess = User32.AnimateWindow(this.Handle, (int)flags, time);
             if (!bSuccess)
